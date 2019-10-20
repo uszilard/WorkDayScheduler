@@ -58,6 +58,8 @@ $(document).ready(function () {
     };
 
     //save button listener for input to add to local storage
+
+    // $(document).ready() {
     $(".saveBtn").on("click", function () {
         // event.preventDefault();
         // var eventTime = $(".event-button").attr();
@@ -65,6 +67,7 @@ $(document).ready(function () {
         //grab the text from the input box
 
         var eventInput = $(".event-input").val();
+        ;
 
 
 
@@ -90,7 +93,7 @@ $(document).ready(function () {
         renderEvent();
 
     });
-
+    // };
 
     //if else statement for past, present and future (< = > moment)
     function timeStyle() {
