@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     //save button listener for input to add to local storage
 
-    // $(document).ready() {
+
     $(".saveBtn").on("click", function (e) {
 
         e.preventDefault();
@@ -70,7 +70,7 @@ $(document).ready(function () {
 
         var eventInput = $(`#${e.target.id}`).val();
 
-        console.log("this is the venet 9999", eventInput)
+        console.log("this is the evnet 9999", eventInput)
 
 
         //store text in local storage
@@ -95,7 +95,7 @@ $(document).ready(function () {
         renderEvent();
 
     });
-    // };
+
 
     //if else statement for past, present and future (< = > moment)
     function timeStyle() {
