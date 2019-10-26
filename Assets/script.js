@@ -25,9 +25,9 @@ $(document).ready(function () {
     //loop and create divs
     for (var i = 0; i < timeStamp.length; i++) {
 
-        var makeEventButton = $(`<button class='saveBtn' data-value = ' ${hour[i]}'>`)
+        var makeEventButton = $(`<button class='saveBtn' id = '${hour[i]}' data-value = ' ${hour[i]}'>`)
         var timeDiv = $("<div class='col-2'>" + timeStamp[i] + "</div>");
-        var eventInputField = $(`<input type='text' class='event-input' data-value = ' ${hour[i]} '>`);
+        var eventInputField = $(`<input type='text' class='event-input' id = '${hour[i]}' data-value = ' ${hour[i]} '>`);
         var eventDiv = $(`<div class='col-8' data-value = ' ${hour[i]} '></div>`);
         var savedEvents = $(`<div data value= ' ${hour[i]}'></div>`);
 
@@ -60,15 +60,17 @@ $(document).ready(function () {
     //save button listener for input to add to local storage
 
     // $(document).ready() {
-    $(".saveBtn").on("click", function () {
-        // event.preventDefault();
+    $(".saveBtn").on("click", function (e) {
+
+        e.preventDefault();
         // var eventTime = $(".event-button").attr();
 
         //grab the text from the input box
+        console.log(e.target)
 
-        var eventInput = $(".event-input").val();
-        ;
+        var eventInput = $(`#${e.target.id}`).val();
 
+        console.log("this is the venet 9999", eventInput)
 
 
         //store text in local storage
@@ -87,7 +89,7 @@ $(document).ready(function () {
         };
 
         //empty the input
-        $(".event-input").val("");
+        $(`#${e.target.id}`).val("");
 
         //call the render event function
         renderEvent();
