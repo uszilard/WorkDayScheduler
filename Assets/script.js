@@ -34,17 +34,21 @@ $(document).ready(function () {
         makeEventButton.text("Add Event");
 
         //add styling to divs
-        $(timeDiv).addClass("time-block");
-        $(eventInputField).addClass("textarea");
-        $(eventDiv).addClass("event-div");
-        $(savedEvents).addClass("saved-events");
+        timeDiv.addClass("time-block");
+        eventInputField.addClass("textarea");
+        eventDiv.addClass("event-div");
+        savedEvents.addClass("saved-events");
+
+        var hourId = hour[i] + "-hour"
+        savedEvents.attr("id", hourId)
+
 
         //add data-values for each div
         var hourValue = hour[i];
         $(".event-input").attr("data-value", timeStamp[i]);
-        $(savedEvents).data({ "hour": hourValue });
-        $(makeEventButton).data({ "hour": hourValue });
-        $(eventDiv).data({ "hour": hourValue });
+        savedEvents.data({ "hour": hourValue });
+        makeEventButton.data({ "hour": hourValue });
+        eventDiv.data({ "hour": hourValue });
 
         console.log(timeStamp[i], eventDiv.attr("data-value"));
 
@@ -81,18 +85,23 @@ $(document).ready(function () {
 
 
         //function to get event from local storage and render it on page
-        function renderEvent() {
+        function renderEvent(id) {
+            console.log("i am running")
 
-            $(".saved-events").append(eventInput);
+            var selector = "#" + id + "-hour"
+
+            $(selector).append(eventInput);
             console.log("render this event!!!");
             console.log("event added: " + eventInput);
         };
+
+        renderEvent(e.target.id);
+
 
         //empty the input
         $(`#${e.target.id}`).val("");
 
         //call the render event function
-        renderEvent();
 
     });
 
